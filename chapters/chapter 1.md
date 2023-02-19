@@ -7,9 +7,11 @@
 
 ### Parallel vs Distributed System
 A **parallel system** uses shared memory
+
 ![](../images/1%20-%20parallel%20system.png)
 
 A **distributed system** does not use shared components
+
 ![](../images/1%20-%20distributed%20system.png)
 
 
