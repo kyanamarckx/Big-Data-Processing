@@ -66,18 +66,39 @@ A **distributed system** does not use shared components
 
 
 ### Problem 1: Partial Failures
+- Occur frequently
+  - May cause real-world outages
+- Hard to detect wether something failed or not, due to the time it takes for a message to travel across the network
 
 
 ### Problem 2: Unreliable Networks
+- Use of asynchronous networking to communicate
+  - No assumptions are made about process execution speeds or message delivery times
+- Asynchronous systems: impossible for the sender to distinguish wether
+  - The request was lost
+  - The remote node is down
+  - The response was lost
 
 
 ### Timeouts in Computer Networks
+- Main problem with timeouts: delays in asynchronous networks are unbounded. Causes:
+  - Queuing of packets at the network level &rarr; high or spiking traffic
+  - Queuing of requests at the application level &larr; application is busy processing other requests
+- Snowball effect: queues are getting bigger on busy systems
+- Exponential back-off rule: double the time we check for an answer up to an upper bound
 
 
 ### Problem 3: Time in Computer Systems
+- "Real" time clocks
+  - Kept in sync using the NTP with cenrtalized servers
+- Monotonic clocks
+  - Only move forward
 
 
 ### The Trouble with Computer Clocks
+- Monotonic clocks: maintained by operating systems + rely on hardware counters (from CPUs). Good for determining order _within_ a node, but each node has its own notion of time
+  - Can not be used to synchronize across nodes
+- Leap seconds (1 minute = 61 or 59 seconds)
 
 
 ### Logical Time
